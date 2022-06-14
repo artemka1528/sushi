@@ -1,9 +1,21 @@
 import './App.css';
 
+import LeftSidebar from './Components/LeftSidebar/LeftSidebar';
+
+import Main from './Components/Main/Main';
+import Pizza from './Components/Pizza/Pizza';
+
+import { Routes, Route, Link } from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
-      <h1>sdads</h1>
+      <LeftSidebar />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/pizza" element={<Pizza />} />
+          
+      </Routes>
     </div>
   );
 }
