@@ -29,7 +29,7 @@ function App() {
               <LeftSidebar />
             </Grid>
             <Grid item xs={11}>
-              <Header timeStart='10:00' timeEnd='00:00' city='Бишкек' tel1='+996 705 188 955' tel2='+996 555 188 955'/>
+              <Header  city='Бишкек' tel1='+996 705 188 955' tel2='+996 555 188 955'/>
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/pizza" element={<Pizza />} />

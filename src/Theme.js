@@ -20,6 +20,9 @@ export const Theme = createTheme({
   },
   border: {
     main: 5,
+  },
+  link: {
+    main: "none",
   }
 });
 
