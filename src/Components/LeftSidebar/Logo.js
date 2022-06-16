@@ -4,19 +4,21 @@ import Typography from '@mui/material/Typography';
 import LogoImg from './img/logo.svg';
 
 
+const styleLogo = {
+  fontWeight: 300,
+  fontSize: 30,
+  lineHeight: "30px",
+  textTransform: "uppercase",
+  color: "#000000",
+}
 function Logo(props) {
+  
   return (
-    <div style={{display: 'flex',flexDirection: "column", alignItems: 'center'}} className="Logo">
+    <div style={{display: 'flex',flexDirection: "column", alignItems: 'center', cursor: 'pointer'}} className="Logo">
         <Typography variant="body2" color="text.secondary">
             <img src={LogoImg} alt="logo" />
         </Typography>
-        <ListItemText style={{fontWeight: 300,
-                                fontSize: 30,
-                                lineHeight: "30px",
-                                textTransform: "uppercase",
-                                color: "#000000"
-                                }}>
-                                    {props.title}</ListItemText>
+        <ListItemText style={styleLogo}>{props.title}</ListItemText>
     </div>
   );
 }
