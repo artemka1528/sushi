@@ -12,7 +12,7 @@ function ListLink({link}) {
             color: theme.palette.primary.main,
         }
     }))
-    const listLink = link.map((item, index) => (<StyledLink  to={item.href}>{item.title}</StyledLink>))
+    const listLink = link.map((item, index) => (<StyledLink key={index}  to={item.href}>{item.title}</StyledLink>))
 
   return (
     <>
