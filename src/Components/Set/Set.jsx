@@ -88,14 +88,14 @@ function Set(props) {
   return (
     <div>
       <div className="SetHeader">
-        <Box sx={{ minWidth: 120 }}>
+        <Box sx={{ maxWidth: 198 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Сортировка</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={value}
-              label="Age"
+              label="Сортировка"
               onChange={handleChange}
             >
               <MenuItem value={"default"}>По умолчанию</MenuItem>
