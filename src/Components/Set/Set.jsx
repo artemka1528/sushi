@@ -9,52 +9,55 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Grid from "@mui/material/Grid";
 
+import Selected from "../Selected/Selected";
+
 function Set(props) {
   const [cards, setCards] = useState([
     {
       img: "/",
       name: "Саломон сет",
       pieces: "30",
-      weight: "40",
+      weight: "1050",
       price: "1500",
     },
     {
       img: "/",
-      name: "Саломон сет",
+      name: `Сет "5 Филадельфий"`,
       pieces: "40",
-      weight: "40",
+      weight: "1120",
       price: "1499",
     },
     {
       img: "/",
-      name: "Саломон сет",
+      name: "Филадельфия и лосось сет",
       pieces: "36",
-      weight: "40",
+      weight: "1260",
       price: "1499",
     },
     {
       img: "/",
-      name: "Саломон сет",
+      name: `Сет "6 Филадельфий"`,
       pieces: "46",
-      weight: "40",
+      weight: "1320",
       price: "1559",
     },
     {
       img: "/",
-      name: "Саломон сет",
+      name: "Топовый сет",
       pieces: "40",
-      weight: "40",
+      weight: "1020",
       price: "1519",
     },
     {
       img: "/",
-      name: "Саломон сет",
+      name: "Камикадзе сет",
       pieces: "52",
-      weight: "40",
+      weight: "1200",
       price: "1469",
     },
   ]);
-  const sortPriceLow = () => {
+  const [defaultList, setDefault] = useState(cards);
+  const sortPriceLow = (value) => {
     setCards([...cards].sort((a, b) => (a.price > b.price ? 1 : -1)));
   };
   const sortPriceHeight = () => {
@@ -63,53 +66,50 @@ function Set(props) {
   const sortPieces = () => {
     setCards([...cards].sort((a, b) => (a.pieces > b.pieces ? 1 : -1)));
   };
+  const sortName = () => {
+    setCards([...cards].sort((a, b) => (a.name > b.name ? 1 : -1)));
+  };
+  const sortWeight = () => {
+    setCards([...cards].sort((a, b) => (a.weight > b.weight ? 1 : -1)));
+  };
+  const sortDefault = () => {
+    setCards(defaultList);
+  };
   const [value, setValue] = useState("");
 
   const handleChange = (event) => {
     setValue(event.target.value);
     console.log(event.target.value);
     if (event.target.value == "cheaper") {
-      sortPriceLow();
-    } else if(event.target.value == "expensive") {
-        sortPriceHeight();
-    } else if(event.target.value == "pieces") {
-        sortPieces();
+      sortPriceLow(event.target.value);
+    } else if (event.target.value == "expensive") {
+      sortPriceHeight();
+    } else if (event.target.value == "pieces") {
+      sortPieces();
+    } else if (event.target.value == "name") {
+      sortName();
+    } else if (event.target.value == "weight") {
+      sortWeight();
+    } else if (event.target.value == "default") {
+      sortDefault();
     }
   };
 
-  const cardsList = cards.map((item) => (
-    <CardItem
-      name={item.name}
-      pieces={item.pieces}
-      weight={item.weight}
-      price={item.price}
-    />
-  ));
   return (
     <div>
-      <div className="SetHeader">
-        <Box sx={{ maxWidth: 198 }}>
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Сортировка</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={value}
-              label="Сортировка"
-              onChange={handleChange}
-            >
-              <MenuItem value={"default"}>По умолчанию</MenuItem>
-              <MenuItem value={"name"}>Название</MenuItem>
-              <MenuItem value={"cheaper"}>Сначала дешевле</MenuItem>
-              <MenuItem value={"expensive"}>Сначала дороже</MenuItem>
-              <MenuItem value={"pieces"}>Количество кусочков</MenuItem>
-              <MenuItem value={"weight"}>Вес</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
-      </div>
-      {/* <CardItem name={name} cheaper={cheaper} expensive={expensive} pieces={pieces} weight={weight} /> */}
-      <Grid>{cardsList}</Grid>
+      <Selected title='Сеты' value={value} handleChange={handleChange} />
+      <Grid container spacing={2}>
+        {cards.map((item) => (
+          <Grid item xs={4}>
+            <CardItem
+              name={item.name}
+              pieces={item.pieces}
+              weight={item.weight}
+              price={item.price}
+            />
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 }
