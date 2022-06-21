@@ -4,6 +4,7 @@ import LeftSidebar from './Components/LeftSidebar/LeftSidebar';
 
 import Main from './Components/Main/Main';
 import Pizza from './Components/Pizza/Pizza';
+import Set from './Components/Set/Set';
 import Feedback from './Components/Feedback/Feedback';
 
 import Grid from '@mui/material/Grid';
@@ -34,7 +35,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/pizza" element={<Pizza />} />
-              <Route path="/ShippingAndPayment" element={<Feedback />} />
+              <Route path="/Feedback" element={<Feedback />} />
+              <Route path="/Set" element={<Set />} />
             </Routes>
             </Grid>
             <Grid item xs={3}>
