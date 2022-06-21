@@ -11,7 +11,7 @@ import { Divider } from "@mui/material";
 function CardItem({name, pieces, weight, price}) {
   return (
     <>
-      <Card sx={{ maxWidth: 288 }}>
+      <Card sx={{ maxWidth: 288}}>
         <CardMedia
           component="img"
           height="210"
@@ -27,11 +27,11 @@ function CardItem({name, pieces, weight, price}) {
           </Typography>
         </CardContent>
         <Divider />
-        <CardActions>
+        <CardActions sx={{justifyContent: 'space-between'}}>
           <Typography variant="h6" component="div">
             {price} СОМ
           </Typography>
-          <Button size="small">Хочу!</Button>
+          <Button variant="contained" size="small">Хочу!</Button>
         </CardActions>
       </Card>
     </>
