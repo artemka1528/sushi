@@ -18,17 +18,20 @@ import { ThemeProvider } from "@mui/material";
 
 import { Theme } from "./Theme";
 
+import CssBaseline from '@mui/material/CssBaseline';
+
 function App() {
   console.log(Theme);
   return (
     <div className="App">
+      <CssBaseline />
       <ThemeProvider theme={Theme}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xxl">
           <Grid columns={16} container spacing={5}>
-            <Grid item xs={2}>
+            <Grid item>
               <LeftSidebar />
             </Grid>
-            <Grid item xs={11} sx={{backgroundColor:'#F2F2F2'}}>
+            <Grid item xxl={11} sx={{backgroundColor:'#F2F2F2', overflow: 'hidden'}}>
               <Header
                 city="Бишкек"
                 tel1="+996 705 188 955"
@@ -41,7 +44,7 @@ function App() {
                 <Route path="/Set" element={<Set />} />
               </Routes>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item>
               right-sidebar
             </Grid>
           </Grid>

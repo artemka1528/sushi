@@ -1,17 +1,11 @@
+import './LeftSidebar.css';
 
-import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import LogoImg from './img/logo.svg';
 
 import { Link } from 'react-router-dom';
 
-const styleLogo = {
-  fontWeight: 300,
-  fontSize: 30,
-  lineHeight: "30px",
-  textTransform: "uppercase",
-  color: "#000000",
-}
+
 function Logo(props) {
   
   return (
@@ -19,7 +13,15 @@ function Logo(props) {
         <Typography variant="body2" color="text.secondary">
             <img src={LogoImg} alt="logo" />
         </Typography>
-        <ListItemText style={styleLogo}>{props.title}</ListItemText>
+        <Typography variant='h5' sx={{fontWeight: 300,
+                          fontSize: 30,
+                          lineHeight: "30px",
+                          textTransform: "uppercase",
+                          color: "#000000",
+                          marginTop:'10px'
+                          }}>
+                            {props.title}
+          </Typography>
     </Link>
   );
 }
