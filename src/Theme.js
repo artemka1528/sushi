@@ -15,8 +15,12 @@ export const Theme = createTheme({
       main: "#A4ACAD",
     },
     warning: {
-      main: '#EB5757'
-    }
+      main: '#EB5757',
+    },
+    
+  },
+  colorNone: {
+    main:'rgba(0, 0, 0, 0)',
   },
   border: {
     main: 5,
