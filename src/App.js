@@ -27,7 +27,7 @@ function App() {
       <CssBaseline />
       <ThemeProvider theme={Theme}>
         <Container maxWidth="xxl">
-          <Grid columns={16} container spacing={5}>
+          <Grid columns={16} container >
             <Grid item>
               <LeftSidebar />
             </Grid>
