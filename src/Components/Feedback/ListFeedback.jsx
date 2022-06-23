@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from "@emotion/styled";
 
-import { Grid } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 
 function ListFeedback({list}) {
     const StyledFeed = styled(Grid)(({theme}) => ({
@@ -10,6 +10,7 @@ function ListFeedback({list}) {
         borderRadius: 5,
         padding: 10,
         gap: 20,
+        
     }))
     const StyledFeedTitle = styled(Grid)(({theme}) => ({
         color: "#111111",
@@ -29,14 +30,14 @@ function ListFeedback({list}) {
     const listFeedback = list.map((item, index) => (
         <StyledFeed key={index} container>
             <StyledFeedTitle item xs='auto'>{item.name}</StyledFeedTitle>
-            <StyledFeedTime item xs={2}>{item.time}</StyledFeedTime>
-            <StyledFeedText item xs={12}>{item.text}</StyledFeedText>
+            <StyledFeedTime item xs={5}>{item.time}</StyledFeedTime>
+            <StyledFeedText  item xs={12}>{item.text}</StyledFeedText>
         </StyledFeed>
     ));
     return (
-        <div>
+        <Stack sx={{paddingTop: '29px'}} spacing={2}>
             {listFeedback}
-        </div>
+        </Stack>
     );
 }
 

@@ -22,7 +22,7 @@ function Header(props) {
 
   return (
     <>
-    <Stack  spacing={2} direction="row" className="Header">
+    <Stack sx={{padding: '8px 30px'}}  spacing={2} direction="row" className="Header">
         <Stack sx={{alignItems:'center'}}>
             <NumList timeStart='10:00' timeEnd='00:00' num={num} />
         </Stack>

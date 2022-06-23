@@ -28,12 +28,12 @@ const Feedback = () => {
 
     return (
         <div>
-            <Grid container>
+            <Grid sx={{padding: '60px 30px 0 30px'}} container justifyContent="space-between">
                 <Grid item xs={8}>
                     <Typography variant='h4'>Отзывы</Typography>
                 </Grid>
-                <Grid item xs={4}>
-                    <Button onClick={addFormFeedback} variant='contained'>+ Добавить отзыв</Button>
+                <Grid item xs='auto'>
+                    <Button sx={{color: '#ffffff'}} color='darkColor' onClick={addFormFeedback} variant='contained'>+ Добавить отзыв</Button>
                 </Grid>
                 <Grid item xs={12}>
                     <AddFormFeedback create={createPost} isOpen={openInput}/>
