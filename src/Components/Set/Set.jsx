@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import CardItem from "../Card/CardItem";
 
@@ -9,54 +9,25 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Grid from "@mui/material/Grid";
 
+import { Container  } from '@mui/material';
+
 import Selected from "../Selected/Selected";
 
 function Set(props) {
-  const [cards, setCards] = useState([
-    {
-      img: "/",
-      name: "Саломон сет",
-      pieces: "30",
-      weight: "1050",
-      price: "1500",
-    },
-    {
-      img: "/",
-      name: `Сет "5 Филадельфий"`,
-      pieces: "40",
-      weight: "1120",
-      price: "1499",
-    },
-    {
-      img: "/",
-      name: "Филадельфия и лосось сет",
-      pieces: "36",
-      weight: "1260",
-      price: "1499",
-    },
-    {
-      img: "/",
-      name: `Сет "6 Филадельфий"`,
-      pieces: "46",
-      weight: "1320",
-      price: "1559",
-    },
-    {
-      img: "/",
-      name: "Топовый сет",
-      pieces: "40",
-      weight: "1020",
-      price: "1519",
-    },
-    {
-      img: "/",
-      name: "Камикадзе сет",
-      pieces: "52",
-      weight: "1200",
-      price: "1469",
-    },
-  ]);
-  const [defaultList, setDefault] = useState(cards);
+  const [cards, setCards] = useState([]);
+  const [defaultList, setDefault] = useState([]);
+  useEffect(() => {
+    async function getSet() {
+      let response = await fetch('http://localhost:3001/set');
+      let set = await response.json();
+      setCards(set);
+      setDefault(set);
+    };
+    getSet()
+  }, [])
+  console.log(cards);
+  
+
   const sortPriceLow = (value) => {
     setCards([...cards].sort((a, b) => (a.price > b.price ? 1 : -1)));
   };
@@ -96,9 +67,9 @@ function Set(props) {
   };
 
   return (
-    <div>
+    <Container  maxWidth="md">
       <Selected title='Сеты' value={value} handleChange={handleChange} />
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{mt: '30px'}}>
         {cards.map((item) => (
           <Grid item xs={4}>
             <CardItem
@@ -110,7 +81,7 @@ function Set(props) {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </Container>
   );
 }
 

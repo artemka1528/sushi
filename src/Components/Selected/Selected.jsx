@@ -18,7 +18,7 @@ function Selected({value, handleChange, title}) {
     }
   }))
   return (
-    <Grid container sx={{justifyContent: 'space-between'}}>
+    <Grid container sx={{justifyContent: 'space-between', mt: '22px'}}>
         <Grid item xs={9}>
             <Typography variant='h5'>{title}</Typography>
         </Grid>
