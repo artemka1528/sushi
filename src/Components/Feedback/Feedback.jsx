@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Grid,Typography,Button,TextField } from '@mui/material';
 
@@ -8,11 +8,15 @@ import AddFormFeedback from './AddFormFeedback';
 
 
 const Feedback = () => {
-    const [list, setList] = useState([
-        {name:'Розалия', time: '02.24.21', text: 'Ваша доставка и ваши блюда лучшие в Харькове!) всегда очень вкусно, вовремя, всегда вежливые курьеры и девушки на телефоне'},
-        {name:'Елена', time: '02.23.21', text: 'Ооочень вкусно!!!!!'},
-        {name:'Сергей Гаврилюк', time: '02.23.21', text: 'Заказываем у Вас больше 2 -ух лет, были разные ситуации, но сервис стал лучше, суши вкуснее. За доставку сегодня на время, огромное спасибо, точь-в-точь в минута в минуту. Успехов Вам и приятных бонусов нам )'},
-    ]);
+    const [list, setList] = useState([]);
+    useEffect(() => {
+        async function getSet() {
+          let response = await fetch('http://localhost:3001/feedback');
+          let set = await response.json();
+          setList(set);
+        };
+        getSet()
+      }, [])
     const [openInput, setOpenInput] = useState(false);
     function addFormFeedback() {
         setOpenInput(true);
