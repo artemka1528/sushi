@@ -10,7 +10,7 @@ function Footer(props) {
       justifyContent="center"
       alignItems="center"
       spacing={5}
-      sx={{display: 'flex', alignContent: 'flex-end', justifyContent: 'center', alignItems: 'flex-start'}}
+      sx={{display: 'flex', alignContent: 'flex-end', justifyContent: 'center', alignItems: 'flex-start', marginTop: '60px'}}
     >
       <Stack spacing={2.5} direction="column">
         <Typography>О компании</Typography>
