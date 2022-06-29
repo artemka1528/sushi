@@ -24,6 +24,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import RightSidebar from "./Components/RightSidebar/RightSidebar";
 
+import Footer from './Components/Footer/Footer';
+
 export const CardContext = React.createContext([]);
 export const DisContext = React.createContext();
 
@@ -56,12 +58,14 @@ function App() {
                     tel1="+996 705 188 955"
                     tel2="+996 555 188 955"
                   />
+                    
                   <Routes>
                     <Route path="/" element={<Main />} />
                     <Route path="/pizza" element={<Pizza />} />
                     <Route path="/Feedback" element={<Feedback />} />
                     <Route path="/Set" element={<Set />} />
                   </Routes>
+                  <Footer />
                 </Grid>
                 <Grid item sx={{ paddingLeft: "40px", paddingTop: "55px" }}>
                   <RightSidebar />
