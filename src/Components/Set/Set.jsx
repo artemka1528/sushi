@@ -66,6 +66,10 @@ function Set(props) {
     }
   };
 
+  const [inCard, useInCard] = useState([])
+  function addInCard(inCard) {
+    console.log(inCard);
+  }
   return (
     <Container  maxWidth="md">
       <Selected title='Сеты' value={value} handleChange={handleChange} />
@@ -77,6 +81,7 @@ function Set(props) {
               pieces={item.pieces}
               weight={item.weight}
               price={item.price}
+              addInCard={addInCard}
             />
           </Grid>
         ))}

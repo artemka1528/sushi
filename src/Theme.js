@@ -13,6 +13,7 @@ export const Theme = createTheme({
     },
     grayColor: {
       main: "#A4ACAD",
+      secondary: '#F2F2F2'
     },
     warning: {
       main: '#EB5757',
@@ -35,7 +36,7 @@ export const Theme = createTheme({
       md: 950,
       lg: 1200,
       xl: 1536,
-      xxl: 1720,
+      xxl: 1770,
     },
   },
 });

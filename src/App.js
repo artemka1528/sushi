@@ -1,5 +1,7 @@
 import "./App.css";
 
+import React, { useContext, useState } from "react";
+
 import LeftSidebar from "./Components/LeftSidebar/LeftSidebar";
 
 import Main from "./Components/Main/Main";
@@ -18,39 +20,58 @@ import { ThemeProvider } from "@mui/material";
 
 import { Theme } from "./Theme";
 
-import CssBaseline from '@mui/material/CssBaseline';
+import CssBaseline from "@mui/material/CssBaseline";
+
+import RightSidebar from "./Components/RightSidebar/RightSidebar";
+
+export const CardContext = React.createContext([]);
+export const DisContext = React.createContext();
 
 function App() {
   console.log(Theme);
+
+  const [cardContext, setCardContext] = useState([]);
+  const [disBtnContext, setBtnContext] = useState(false);
   return (
-    <div className="App">
-      <CssBaseline />
-      <ThemeProvider theme={Theme}>
-        <Container maxWidth="xxl">
-          <Grid columns={16} container >
-            <Grid item>
-              <LeftSidebar />
-            </Grid>
-            <Grid item xxl={11} sx={{backgroundColor:'#F2F2F2', overflow: 'hidden'}}>
-              <Header
-                city="Бишкек"
-                tel1="+996 705 188 955"
-                tel2="+996 555 188 955"
-              />
-              <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="/pizza" element={<Pizza />} />
-                <Route path="/Feedback" element={<Feedback />} />
-                <Route path="/Set" element={<Set />} />
-              </Routes>
-            </Grid>
-            <Grid item>
-              right-sidebar
-            </Grid>
-          </Grid>
-        </Container>
-      </ThemeProvider>
-    </div>
+    <CardContext.Provider value={{ cardContext, setCardContext }}>
+      <DisContext.Provider value={[ disBtnContext, setBtnContext ]}>
+        <div className="App">
+          <CssBaseline />
+          <ThemeProvider theme={Theme}>
+            <Container maxWidth="xxl">
+              <Grid columns={16} container>
+                <Grid item>
+                  <LeftSidebar />
+                </Grid>
+                <Grid
+                  item
+                  xxl={11}
+                  sx={{
+                    backgroundColor: "#F2F2F2",
+                    maxWidth: "1120px !important",
+                  }}
+                >
+                  <Header
+                    city="Бишкек"
+                    tel1="+996 705 188 955"
+                    tel2="+996 555 188 955"
+                  />
+                  <Routes>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/pizza" element={<Pizza />} />
+                    <Route path="/Feedback" element={<Feedback />} />
+                    <Route path="/Set" element={<Set />} />
+                  </Routes>
+                </Grid>
+                <Grid item sx={{ paddingLeft: "40px", paddingTop: "55px" }}>
+                  <RightSidebar />
+                </Grid>
+              </Grid>
+            </Container>
+          </ThemeProvider>
+        </div>
+      </DisContext.Provider>
+    </CardContext.Provider>
   );
 }
 
