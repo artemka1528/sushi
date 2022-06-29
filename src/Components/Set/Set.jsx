@@ -74,13 +74,14 @@ function Set(props) {
     <Container  maxWidth="md">
       <Selected title='Сеты' value={value} handleChange={handleChange} />
       <Grid container spacing={2} sx={{mt: '30px'}}>
-        {cards.map((item) => (
-          <Grid item xs={4}>
+        {cards.map((item, index) => (
+          <Grid key={index} item xs={4}>
             <CardItem
               name={item.name}
               pieces={item.pieces}
               weight={item.weight}
               price={item.price}
+              want={item.want}
               addInCard={addInCard}
             />
           </Grid>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 
 import { CardContext, DisContext } from '../../App';
@@ -7,10 +7,11 @@ import { Divider, Typography, Button, CardMedia, CardContent, CardActions, Card 
 
 import imge from '../../img/product/1.png';
 
-function CardItem({name, pieces, weight, price, addInCard}) {
+function CardItem({name, pieces, weight, price, want}) {
   const {cardContext, setCardContext} = useContext(CardContext);
   const [ disBtnContext, setBtnContext ] = useContext(DisContext);
-  const [ togBtn, setTogBtn ] = useState(disBtnContext);
+  const [valueWant, setWant] = useState(false);
+
   return (
     <>
       <Card sx={{ maxWidth: 288, height: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
@@ -34,11 +35,10 @@ function CardItem({name, pieces, weight, price, addInCard}) {
             {price} СОМ
           </Typography>
           <Button onClick={() => {
-            setCardContext([...cardContext, {name, pieces, weight, price} ]);
-            setBtnContext(true);
-            setTogBtn(disBtnContext);
-            console.log(togBtn);
-          }} variant="contained" size="small" disabled={togBtn} >Хочу!</Button>
+            want = true;
+            setWant(want);
+            setCardContext([...cardContext, {name, pieces, weight, price, want} ]);
+          }} variant="contained" size="small" disabled={valueWant} >Хочу!</Button>
         </CardActions>
       </Card>
     </>
