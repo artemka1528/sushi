@@ -1,47 +1,77 @@
-import './App.css';
+import "./App.css";
 
-import LeftSidebar from './Components/LeftSidebar/LeftSidebar';
+import React, { useContext, useState } from "react";
 
-import Main from './Components/Main/Main';
-import Pizza from './Components/Pizza/Pizza';
+import LeftSidebar from "./Components/LeftSidebar/LeftSidebar";
 
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
+import Main from "./Components/Main/Main";
+import Pizza from "./Components/Pizza/Pizza";
+import Set from "./Components/Set/Set";
+import Feedback from "./Components/Feedback/Feedback";
 
-import Header from './Components/Header/Header';
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
+
+import Header from "./Components/Header/Header";
 
 import { Routes, Route, Link } from "react-router-dom";
 
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider } from "@mui/material";
 
-import { Theme } from './Theme';
+import { Theme } from "./Theme";
 
+import CssBaseline from "@mui/material/CssBaseline";
 
+import RightSidebar from "./Components/RightSidebar/RightSidebar";
+
+export const CardContext = React.createContext([]);
+export const DisContext = React.createContext();
 
 function App() {
   console.log(Theme);
+
+  const [cardContext, setCardContext] = useState([]);
+  const [disBtnContext, setBtnContext] = useState(false);
   return (
-    <div className="App">
-      <ThemeProvider theme={Theme}>
-        <Container maxWidth="xl">
-          <Grid columns={16} container spacing={5}>
-            <Grid item xs={2}>
-              <LeftSidebar />
-            </Grid>
-            <Grid item xs={11}>
-              <Header  city='Бишкек' tel1='+996 705 188 955' tel2='+996 555 188 955'/>
-            <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/pizza" element={<Pizza />} />
-            </Routes>
-            </Grid>
-            <Grid item xs={3}>
-              right-sidebar
-            </Grid>
-          </Grid>
-        </Container>
-      </ThemeProvider> 
-    </div>
+    <CardContext.Provider value={{ cardContext, setCardContext }}>
+      <DisContext.Provider value={[ disBtnContext, setBtnContext ]}>
+        <div className="App">
+          <CssBaseline />
+          <ThemeProvider theme={Theme}>
+            <Container maxWidth="xxl">
+              <Grid columns={16} container>
+                <Grid item>
+                  <LeftSidebar />
+                </Grid>
+                <Grid
+                  item
+                  xxl={11}
+                  sx={{
+                    backgroundColor: "#F2F2F2",
+                    maxWidth: "1120px !important",
+                  }}
+                >
+                  <Header
+                    city="Бишкек"
+                    tel1="+996 705 188 955"
+                    tel2="+996 555 188 955"
+                  />
+                  <Routes>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/pizza" element={<Pizza />} />
+                    <Route path="/Feedback" element={<Feedback />} />
+                    <Route path="/Set" element={<Set />} />
+                  </Routes>
+                </Grid>
+                <Grid item sx={{ paddingLeft: "40px", paddingTop: "55px" }}>
+                  <RightSidebar />
+                </Grid>
+              </Grid>
+            </Container>
+          </ThemeProvider>
+        </div>
+      </DisContext.Provider>
+    </CardContext.Provider>
   );
 }
 

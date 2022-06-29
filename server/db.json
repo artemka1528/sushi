@@ -1,0 +1,17 @@
+{
+    "set": [
+      { "id": 1, "name": "Саломон сет", "weight": "1050", "pieces": "30", "price":"1500", "want": "false"},
+      { "id": 2, "name": "Сет '5 Филадельфий'", "weight": "1120", "pieces": "40", "price":"1499", "want": "false"},
+      { "id": 3, "name": "Филадельфия и лосось сет", "weight": "1260", "pieces": "36", "price":"1499", "want": "false"},
+      { "id": 4, "name": "Сет '6 Филадельфий'", "weight": "1320", "pieces": "46", "price":"1559", "want": "false"},
+      { "id": 5, "name": "Топовый сет", "weight": "1020", "pieces": "40", "price":"1519", "want": "false"},
+      { "id": 6, "name": "Камикадзе сет", "weight": "1200", "pieces": "52", "price":"1469", "want": "false"},
+      { "id": 7, "name": "Сет '4 Филадельфии'", "weight": "1100", "pieces": "32", "price":"1559", "want": "false"},
+      { "id": 8, "name": "Филадельфия LOVE сет", "weight": "1000", "pieces": "40", "price":"1479", "want": "false"},
+      { "id": 9, "name": "Якудза сет", "weight": "1270", "pieces": "50", "price":"1499", "want": "false"}
+    ],
+    "feedback": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" }
+  }

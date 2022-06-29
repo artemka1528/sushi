@@ -1,12 +1,7 @@
 import './LeftSidebar.css';
 
 import React, { useState } from 'react';
-import Divider from '@mui/material/Divider';
-import Paper from '@mui/material/Paper';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
-import Typography from '@mui/material/Typography';
+import { Divider, Paper } from '@mui/material';
 
 
 import Pizza from './img/pizza.svg';
@@ -38,10 +33,10 @@ function LeftSidebar() {
         {id: 10, title: 'Акции', href: '/acc', img: Acc},
     ]);
   return (
-    <div className="LeftSidebar">
-        <Paper style={{boxShadow: 'none'}} sx={{ width: '100%', maxWidth: 180 }}>
+    <div className="leftSidebar">
+        <Paper sx={{boxShadow: 'none', maxWidth: 180}} >
             <Logo title="Romsem" />
-            <Divider />
+            <Divider sx={{margin: '30px 0'}} />
             <ListMenu menu={menu} />
         </Paper>
     </div>
