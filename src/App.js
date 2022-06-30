@@ -24,6 +24,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import RightSidebar from "./Components/RightSidebar/RightSidebar";
 
+import Footer from './Components/Footer/Footer';
+
 export const CardContext = React.createContext([]);
 export const DisContext = React.createContext();
 
@@ -39,7 +41,9 @@ function App() {
           <CssBaseline />
           <ThemeProvider theme={Theme}>
             <Container maxWidth="xxl">
-              <Grid columns={16} container>
+              <Grid columns={16} container
+              sx={{gridTemplateRows: "1fr",}}
+              >
                 <Grid item>
                   <LeftSidebar />
                 </Grid>
@@ -49,6 +53,9 @@ function App() {
                   sx={{
                     backgroundColor: "#F2F2F2",
                     maxWidth: "1120px !important",
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between'
                   }}
                 >
                   <Header
@@ -56,12 +63,14 @@ function App() {
                     tel1="+996 705 188 955"
                     tel2="+996 555 188 955"
                   />
-                  <Routes>
+
+                  <Routes >
                     <Route path="/" element={<Main />} />
                     <Route path="/pizza" element={<Pizza />} />
                     <Route path="/Feedback" element={<Feedback />} />
                     <Route path="/Set" element={<Set />} />
                   </Routes>
+                  <Footer />
                 </Grid>
                 <Grid item sx={{ paddingLeft: "40px", paddingTop: "55px" }}>
                   <RightSidebar />
