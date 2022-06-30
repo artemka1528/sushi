@@ -70,7 +70,7 @@ function App() {
                     <Route path="/Feedback" element={<Feedback />} />
                     <Route path="/Set" element={<Set />} />
                   </Routes>
-                  <Footer sx={{marginTop: "100%",}} />
+                  <Footer />
                 </Grid>
                 <Grid item sx={{ paddingLeft: "40px", paddingTop: "55px" }}>
                   <RightSidebar />
