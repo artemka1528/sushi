@@ -3,7 +3,7 @@ import { Stack, Typography,Link, Divider  } from "@mui/material";
 
 function Footer(props) {
   return (
-    <div  sx={{marginTop: '60px'}}>
+    <div  style={{marginTop: '60px'}}>
       <Divider />
     <Stack
     divider={<Divider orientation="vertical" flexItem />}

@@ -20,6 +20,7 @@ function CardItem({name, pieces, weight, price, want, img}) {
           height="210"
           image={img}
           alt="green iguana"
+          sx={{padding: '0 18px'}}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
