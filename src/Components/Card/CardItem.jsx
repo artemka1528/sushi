@@ -7,7 +7,7 @@ import { Divider, Typography, Button, CardMedia, CardContent, CardActions, Card 
 
 import imge from '../../img/product/1.png';
 
-function CardItem({name, pieces, weight, price, want}) {
+function CardItem({name, pieces, weight, price, want, img}) {
   const {cardContext, setCardContext} = useContext(CardContext);
   const [ disBtnContext, setBtnContext ] = useContext(DisContext);
   const [valueWant, setWant] = useState(false);
@@ -18,7 +18,7 @@ function CardItem({name, pieces, weight, price, want}) {
         <CardMedia
           component="img"
           height="210"
-          image={imge}
+          image={img}
           alt="green iguana"
         />
         <CardContent>
@@ -37,7 +37,7 @@ function CardItem({name, pieces, weight, price, want}) {
           <Button onClick={() => {
             want = true;
             setWant(want);
-            setCardContext([...cardContext, {name, pieces, weight, price, want} ]);
+            setCardContext([...cardContext, {name, pieces, weight, price, want, img} ]);
           }} variant="contained" size="small" disabled={valueWant} >Хочу!</Button>
         </CardActions>
       </Card>

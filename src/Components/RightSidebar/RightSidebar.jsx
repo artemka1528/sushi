@@ -11,7 +11,7 @@ function RightSidebar(props) {
   const [ valueBasket, setValueBacket] = useState(0);
   
   const listCardBasket = cardContext.map((item, index) => (
-    <CardBasket key={index} title={item.name} price={item.price} want={item.want}/>
+    <CardBasket key={index} title={item.name} price={item.price} want={item.want} img={item.img}/>
   ));
 
 

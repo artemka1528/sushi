@@ -3,9 +3,9 @@ import React, { useState, useContext } from "react";
 import { CardContext, DisContext } from "../../App";
 import "./StyleRightSidebar.css";
 
-import { Grid, Typography, Button, Paper } from "@mui/material";
+import { Grid, Typography, Button, Paper, CardMedia } from "@mui/material";
 
-function CardBasket({ title, price }) {
+function CardBasket({ title, price, img }) {
   const [valuePrise, setValuePrice] = useState(price);
 
   const { cardContext, setCardContext } = useContext(CardContext);
@@ -14,7 +14,13 @@ function CardBasket({ title, price }) {
     <>
       <Grid container columns={4}>
         <Grid xs={1} item>
-          img
+        <CardMedia
+          component="img"
+          height="47"
+          width="70"
+          image={img}
+          alt="green iguana"
+        />
         </Grid>
         <Grid item xs={3}>
           <Grid sx={{ maxWidth: "171px" }} container columns={3}>
