@@ -24,6 +24,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import RightSidebar from "./Components/RightSidebar/RightSidebar";
 
+import CardProduct from './Components/CardProduct/CardProduct';
+
 import Footer from './Components/Footer/Footer';
 
 export const CardContext = React.createContext([]);
@@ -69,6 +71,7 @@ function App() {
                     <Route path="/pizza" element={<Pizza />} />
                     <Route path="/Feedback" element={<Feedback />} />
                     <Route path="/Set" element={<Set />} />
+                    <Route path="/CardProduct/:id" element={<CardProduct />} />
                   </Routes>
                   <Footer />
                 </Grid>

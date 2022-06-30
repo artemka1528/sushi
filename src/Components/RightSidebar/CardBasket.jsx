@@ -41,7 +41,7 @@ function CardBasket({ title, price, img }) {
               xs={1}
               item
             >
-              <Button
+              <Button 
                 onClick={() => {
                   if (valuePrise == price) {
                     setCardContext(
