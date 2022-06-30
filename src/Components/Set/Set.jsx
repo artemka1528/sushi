@@ -83,6 +83,7 @@ function Set(props) {
               price={item.price}
               want={item.want}
               img={item.img}
+              id={item.id}
               addInCard={addInCard}
             />
           </Grid>
